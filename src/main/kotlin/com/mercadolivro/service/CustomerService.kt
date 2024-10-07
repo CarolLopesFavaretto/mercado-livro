@@ -31,5 +31,13 @@ class CustomerService {
         return customers.filter { it.id == id }.first()
     }
 
+    fun update(id: Int, customer: CustomerRequest) {
+        customers.filter { it.id == id }.first().let {
+            it.name = customer.name
+            it.email = customer.email
+        }
+
+    }
+
 
 }

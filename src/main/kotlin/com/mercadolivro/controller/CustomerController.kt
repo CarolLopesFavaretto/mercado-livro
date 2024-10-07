@@ -27,4 +27,9 @@ class CustomerController (
     fun getCustomerById(@PathVariable id: Int): Customer {
         return service.getCustomerById(id)
     }
+
+    @PutMapping("/customers/{id}")
+    fun updateCustomer(@PathVariable id: Int, @RequestBody customer: CustomerRequest) {
+        service.update(id, customer)
+    }
 }
