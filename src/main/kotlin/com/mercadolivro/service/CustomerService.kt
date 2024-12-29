@@ -3,8 +3,6 @@ package com.mercadolivro.service
 import com.mercadolivro.dto.CustomerRequest
 import com.mercadolivro.entity.Customer
 import org.springframework.stereotype.Service
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.RequestParam
 
 @Service
 class CustomerService {
@@ -36,8 +34,10 @@ class CustomerService {
             it.name = customer.name
             it.email = customer.email
         }
-
     }
 
+    fun delete(id: Int) {
+        customers.removeIf{ it.id == id }
+    }
 
 }
